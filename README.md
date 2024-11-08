@@ -1,0 +1,1 @@
+.This is a TodoList web app. It allows the user to ADD, REMOVE and MARK as COMPLETED. It consist of a landing page and the main page (ToDoList). Mainly developing the web app using Javascript, Node.js, Node.js Server, html and CSS.
