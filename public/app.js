@@ -1,43 +1,46 @@
-// Get references to DOM elements
+// Select DOM elements
 const taskForm = document.getElementById('add-task-form');
 const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('task-list');
 
-// Event listener for form submission
+// Event listener for form submission (Adding tasks)
 taskForm.addEventListener('submit', function(e) {
-    e.preventDefault();  // Prevent form from submitting and reloading the page
+    e.preventDefault();  // Prevent page reload on form submission
     
-    const taskText = taskInput.value.trim();  // Get the task input value and remove extra spaces
-    
-    if (taskText === '') return;  // Do nothing if input is empty
+    // Get the task text
+    const taskText = taskInput.value.trim();
 
-    // Create a new task item
+    // If the task is empty, do nothing
+    if (taskText === '') return;
+
+    // Create a new list item (task)
     const taskItem = document.createElement('li');
     taskItem.classList.add('task-item');
 
-    // Create the task content
+    // Create task content span
     const taskContent = document.createElement('span');
     taskContent.classList.add('task-content');
     taskContent.textContent = taskText;
 
-    // Create the delete icon
+    // Create the delete icon (Font Awesome)
     const deleteIcon = document.createElement('i');
     deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
     
-    // Append content and delete icon to task item
+    // Append task content and delete icon to the list item
     taskItem.appendChild(taskContent);
     taskItem.appendChild(deleteIcon);
-    
-    // Append the task item to the task list
+
+    // Append the task item to the task list (ul)
     taskList.appendChild(taskItem);
 
-    // Clear the input field
+    // Clear the input field after adding the task
     taskInput.value = '';
 });
 
 // Event delegation for deleting tasks
 taskList.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('delete-icon')) {
+        // Find the closest <li> (task) and remove it
         const taskItem = e.target.closest('li');
         taskList.removeChild(taskItem);
     }
