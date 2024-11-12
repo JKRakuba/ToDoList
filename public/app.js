@@ -43,5 +43,9 @@ taskList.addEventListener('click', function(e) {
         // Find the closest <li> (task) and remove it
         const taskItem = e.target.closest('li');
         taskList.removeChild(taskItem);
+    } else if (e.target && e.target.classList.contains('task-content')) {
+        // Toggle completed state of task when clicked
+        const taskItem = e.target.closest('li');
+        taskItem.classList.toggle('completed');
     }
 });
