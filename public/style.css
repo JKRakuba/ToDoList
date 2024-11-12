@@ -72,6 +72,8 @@ ul#task-list {
 .delete-icon {
     cursor: pointer;
     color: #ca0076;
+    height: 20px;
+    width: 20px;
 }
 
 .delete-icon:hover {
@@ -80,9 +82,32 @@ ul#task-list {
 
 .completed .task-content {
     text-decoration: line-through;
-    color:#7c058bea;;
+    text-decoration-color: #1b1b1b;
+    color:#1b1b1b;
+}
+
+.completed-icon {
+    cursor: pointer;
+    color: #ca0076;
+    height: 20px;
+    width: 20px;
+}
+
+.completed-icon:hover {
+    color: #810161;
+}
+
+.edit-icon {
+    cursor: pointer;
+    color: #ca0076;
+    height: 20px;
+    width: 20px;
+}
+
+.edit-icon:hover {
+    color: #810161;
 }
 
 .task-item:hover {
-    background-color: #f1f1f1;
+    background-color: #fff;
 }
