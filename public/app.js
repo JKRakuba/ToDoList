@@ -25,9 +25,14 @@ taskForm.addEventListener('submit', function(e) {
     // Create the delete icon (Font Awesome)
     const deleteIcon = document.createElement('i');
     deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
+
+    const editIcon = document.createElement('i');
+    editIcon.classList.add('fas', 'fa-edit', 'edit-icon');
+
     
     // Append task content and delete icon to the list item
     taskItem.appendChild(taskContent);
+    taskItem.appendChild(editIcon);
     taskItem.appendChild(deleteIcon);
 
     // Append the task item to the task list (ul)
@@ -40,10 +45,13 @@ taskForm.addEventListener('submit', function(e) {
 // Event delegation for deleting tasks
 taskList.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('delete-icon')) {
+        
         // Find the closest <li> (task) and remove it
         const taskItem = e.target.closest('li');
         taskList.removeChild(taskItem);
+
     } else if (e.target && e.target.classList.contains('task-content')) {
+        
         // Toggle completed state of task when clicked
         const taskItem = e.target.closest('li');
         taskItem.classList.toggle('completed');
