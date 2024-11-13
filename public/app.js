@@ -78,11 +78,6 @@ taskList.addEventListener('click', function(e) {
         const taskItem = e.target.closest('li');
         const taskContent = taskItem.querySelector('.task-content');
 
-    } else if (e.target && e.target.classList.contains('edit-icon')) {
-        // Find the task item and its content
-        const taskItem = e.target.closest('li');
-        const taskContent = taskItem.querySelector('.task-content');
-        
         // Make the task content editable (turn it into an input field)
         const inputField = document.createElement('input');
         inputField.type = 'text';
