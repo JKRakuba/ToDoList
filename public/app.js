@@ -51,8 +51,8 @@ function reorderTasks() {
         const isCompletedA = a.classList.contains('completed');
         const isCompletedB = b.classList.contains('completed');
         
-        if (isCompletedA && !isCompletedB) return 1; // a is completed, b is not
-        if (!isCompletedA && isCompletedB) return -1; // a is not completed, b is
+        if (isCompletedA && !isCompletedB) return 1; 
+        if (!isCompletedA && isCompletedB) return -1; 
         return 0; // if both are the same (either both completed or both not completed)
     });
 
