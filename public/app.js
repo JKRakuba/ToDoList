@@ -42,6 +42,24 @@ taskForm.addEventListener('submit', function(e) {
     taskInput.value = '';
 });
 
+// Function to reorder tasks in the list (move completed tasks below)
+function reorderTasks() {
+    const tasks = Array.from(taskList.children);
+    
+    // Sort tasks: completed tasks go to the bottom
+    tasks.sort((a, b) => {
+        const isCompletedA = a.classList.contains('completed');
+        const isCompletedB = b.classList.contains('completed');
+        
+        if (isCompletedA && !isCompletedB) return 1; // a is completed, b is not
+        if (!isCompletedA && isCompletedB) return -1; // a is not completed, b is
+        return 0; // if both are the same (either both completed or both not completed)
+    });
+
+    // Reattach the sorted tasks to the list
+    tasks.forEach(task => taskList.appendChild(task));
+}
+
 // Event delegation for deleting tasks
 taskList.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('delete-icon')) {
@@ -52,6 +70,14 @@ taskList.addEventListener('click', function(e) {
         // Toggle completed state of task when clicked
         const taskItem = e.target.closest('li');
         taskItem.classList.toggle('completed');
+
+     // Reorder tasks after toggling the completion state
+     reorderTasks();
+    } else if (e.target && e.target.classList.contains('edit-icon')) {
+        // Find the task item and its content
+        const taskItem = e.target.closest('li');
+        const taskContent = taskItem.querySelector('.task-content');
+
     } else if (e.target && e.target.classList.contains('edit-icon')) {
         // Find the task item and its content
         const taskItem = e.target.closest('li');
