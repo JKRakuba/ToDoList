@@ -6,3 +6,10 @@
 2.  EDIT the task if necessary
 3.  DELETE the task if you don't need it
 4.  Mark as COMPLETE - You can click on the task to mark as COMPLETE then it will draw a line across the task, then the task that's completed will move bellow the tasks that are NOT COMPLETED.
+
+
+
+
+
+https://github.com/user-attachments/assets/9ba0af47-fdb8-4b17-a08b-18c5936af1bb
+
